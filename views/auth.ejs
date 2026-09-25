@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<%- include('partials/head') %>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+<script src="/js/api.js"></script>
+
+<div class="container d-flex align-items-center flex-grow-1">
+  <div class="row g-0 shadow-lg rounded-4 overflow-hidden mx-auto" style="max-width:900px;">
+
+    <div class="col-md-5 bg-primary text-white p-4 p-md-5 d-flex flex-column justify-content-center">
+      <h1 class="h2">Estudiantes y maestros</h1>
+      <p class="mb-0">Registra maestros, matricula estudiantes y consulta quien es el maestro que enseña al estudiante.</p>
+    </div>
+
+    <div class="col-md-7 bg-white p-4 p-md-5">
+      <ul class="nav nav-pills mb-4 bg-light p-1 rounded-3" role="tablist">
+        <li class="nav-item flex-fill" role="presentation">
+          <button class="nav-link active w-100" id="tabLoginBtn" data-bs-toggle="pill" data-bs-target="#tabLogin" type="button">Iniciar sesión</button>
+        </li>
+        <li class="nav-item flex-fill" role="presentation">
+          <button class="nav-link w-100" id="tabRegisterBtn" data-bs-toggle="pill" data-bs-target="#tabRegister" type="button">Crear cuenta</button>
+        </li>
+      </ul>
+
+      <div class="alert alert-danger py-2" id="authError" style="display:none;"></div>
+      <div class="alert alert-success py-2" id="authSuccess" style="display:none;"></div>
+
+      <div class="tab-content">
+
+        <div class="tab-pane fade show active" id="tabLogin">
+          <form id="formLogin" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Correo</label>
+              <input type="email" class="form-control" id="loginEmail" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+
+        <div class="tab-pane fade" id="tabRegister">
+          <form id="formRegister" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="regNombre" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo</label>
+              <input type="email" class="form-control" id="regEmail" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="regPassword" minlength="6" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Registrarme</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts-bootstrap') %>
+<script src="/js/auth.js"></script>
+</body>
+</html>
